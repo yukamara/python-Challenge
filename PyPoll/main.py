@@ -9,19 +9,28 @@ election_csv = os.path.join('Resources', 'election_data.csv')
 with open(election_csv, newline='') as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=',')
 
-#    for row in csv_reader:
-#        print(row)
 
 # TASKS
 # 1. The total number of votes cast
-    total_votes_cast = sum(1 for row in csv_reader) - 1 # I subtract 1 because the code sums everything including the header row
-    print(total_votes_cast)
+    for row in csv_reader:
+        total_votes_cast = sum(1 for row in csv_reader)
+        print(total_votes_cast)
 
 
 # 2. A complete list of candidates who received votes
+    complete_list = []
+    for row in csv_reader:
+        if row[2] not in complete_list:
+            complete_list.append(row[2])
 
+    print(complete_list)
+    names =[]
+    for i in csv_reader:
+        names.append(i['Candidate'])
+    print(list(set(names)))
 
 # 3. The percentage of votes each candidate won
+
 
 
 # 4. The total number of votes each candidate won
@@ -29,23 +38,3 @@ with open(election_csv, newline='') as csvfile:
 
 # 5. The winner of the election based on popular vote.
 
-
-
-
-
-
-
-
-# 1. The total number of months included in the dataset
-
-
-# 2. The net total amount of "Profit/Losses" over the entire period
-
-
-# 3. Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
-
-
-# 4. The greatest increase in profits (date and amount) over the entire period
-
-
-# 5. The greatest decrease in losses (date and amount) over the entire period
