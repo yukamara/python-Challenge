@@ -3,26 +3,26 @@ import os
 import csv
 
 # set the path for collecting the ellection data
-budget_csv = os.path.join('Resources', 'budget_data.csv')
+csvpath = os.path.join('Resources', 'budget_data.csv')
 
-with open(budget_csv, newline='', encoding='utf-8') as csvfile:
-    csv_reader = csv.reader(csvfile, delimiter=',')
+with open(csvpath, newline='') as csvfile:
+    budget_csv = csv.reader(csvfile, delimiter=',')
 
-    for row in csv_reader:
-        print(row)
+    for row in budget_csv:
+        print(row[1])
 
 # TASKS
 # 1. The total number of months included in the dataset
-    for line in csv_reader:
-        no_of_months = sum(1 for row in csv_reader)
+    for row in budget_csv:
+        no_of_months = sum(1 for row in budget)
         print(no_of_months)
 
 
 # 2. The net total amount of "Profit/Losses" over the entire period
-    #total_profit_loss = 0
-    #for x in 
-    profit_loss = ([sum(x) for x in zip(*csv_reader)])
-    print(profit_loss)
+    
+    for row in budget_csv:
+        total_profit_loss += sum(int(row[1]))
+        print(total_profit_loss)
 
 # 3. Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
 
